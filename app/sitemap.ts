@@ -1,0 +1,4 @@
+import type { MetadataRoute } from "next";
+import { articles, industrySeo, servicePages } from "@/lib/seo-content";
+const base="https://process-automation-studio.panchenkooo71.chatgpt.site";
+export default function sitemap():MetadataRoute.Sitemap{const fixed=["","/services","/industries","/case-studies","/insights","/about","/process-assessment","/automation-check"];return [...fixed.map(url=>({url:`${base}${url}`,lastModified:new Date(),changeFrequency:"monthly" as const,priority:url===""?1:.8})),...servicePages.map(x=>({url:`${base}/services/${x.slug}`,lastModified:new Date(),changeFrequency:"monthly" as const,priority:.9})),...industrySeo.map(x=>({url:`${base}/industries/${x.slug}`,lastModified:new Date(),changeFrequency:"monthly" as const,priority:.9})),...articles.map(x=>({url:`${base}/insights/${x.slug}`,lastModified:new Date(),changeFrequency:"monthly" as const,priority:.75}))]}

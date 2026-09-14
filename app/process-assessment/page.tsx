@@ -1,0 +1,5 @@
+import AssessmentForm from "@/components/AssessmentForm";
+import type { Metadata } from "next";
+import { Header, Footer, PageIntro } from "@/components/SiteShell";
+export const metadata:Metadata={title:"Free Business Process Automation Assessment | Betterflow",description:"Request a free process automation assessment. Identify manual work, bottlenecks and opportunities for AI, integration or custom software.",alternates:{canonical:"/process-assessment"}};
+export default function Assessment(){return <main><Header/><PageIntro kicker="FREE PROCESS ASSESSMENT" title="Show us where" accent="the work gets stuck." copy="You do not need to know the solution or use technical language. Tell us what happens, who is involved and what keeps taking too much time."/><section className="assessment-wrap"><AssessmentForm/><aside><span className="eyebrow">WHAT HAPPENS NEXT</span><ol><li><span>01</span>We read the process, not just the request.</li><li><span>02</span>We identify the clearest improvement opportunities.</li><li><span>03</span>We suggest the right next step: audit, mapping, automation or development.</li></ol></aside></section><Footer/></main>}

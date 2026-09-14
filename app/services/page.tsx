@@ -1,0 +1,9 @@
+import type { Metadata } from "next";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { Header, Footer, PageIntro } from "@/components/SiteShell";
+import { servicePages } from "@/lib/seo-content";
+
+export const metadata:Metadata={title:"Business Process Automation Services | Betterflow",description:"Business process audit, BPMN mapping, AI workflow automation, API integration, Bubble and custom web application development for growing companies.",alternates:{canonical:"/services"}};
+
+export default function Services(){return <main><Header/><PageIntro kicker="BUSINESS PROCESS AUTOMATION SERVICES" title="See the process." accent="Build the better one." copy="From business process audit and BPMN mapping to AI workflow automation, system integration and custom application development, we improve the way work moves across your company."/><section className="service-detail-list">{servicePages.map((page,i)=><Link href={`/services/${page.slug}`} key={page.slug} className="service-detail"><div className="service-number">{String(i+1).padStart(2,'0')}</div><div><span className="eyebrow">{i<3?'UNDERSTAND':i<6?'AUTOMATE & BUILD':'CONNECT & DELIVER'}</span><h2>{page.title}</h2><p>{page.short}</p><div className="tag-list">{page.deliverables.slice(0,3).map(t=><span key={t}>{t}</span>)}</div></div><ArrowUpRight className="service-arrow"/></Link>)}</section><section className="bridge-section"><span>END-TO-END PROCESS AUTOMATION</span><h2>We don&apos;t hand you a diagram<br/>and disappear.</h2><p>Business process analysis and technical implementation stay connected. We audit the current workflow, design the future process and deliver the AI automation, integrations or custom software required to make it work.</p><Link className="button-light" href="/process-assessment">Discuss your process <ArrowUpRight/></Link></section><Footer/></main>}
